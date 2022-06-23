@@ -96,7 +96,7 @@ def edit():
 def delete():
     global id_paciente, id_receta
     receta = {
-        "id": request.json['id']
+        "id": [request.json['id']]
     }
 
     session.execute(
