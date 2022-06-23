@@ -1,0 +1,58 @@
+version: "2"
+
+networks:
+  app-tier:
+    driver: bridge
+
+services:
+  cassandra_node_1:
+    image: bitnami/cassandra:latest
+    networks:
+      - app-tier
+    # ports:
+    #   - "7000:7000"
+    environment:
+      - CASSANDRA_SEEDS= cassandra_node_1, cassandra_node_2, cassandra_node_3
+      - CASSANDRA_CLUSTER_NAME=cassandra-cluster
+      - CASSANDRA_USER=cassandra
+      - CASSANDRA_PASSWORD=cassandra
+      # - CASSANDRA_CQL_PORT_NUMBER=3000
+    volumes:
+      - ./start:/docker-entrypoint-initdb.d
+    
+  cassandra_node_2:
+    image: bitnami/cassandra:latest
+    networks:
+      - app-tier
+    # ports:
+    #   - "7001:7001"
+    environment:
+      - CASSANDRA_SEEDS= cassandra_node_1, cassandra_node_2, cassandra_node_3
+      - CASSANDRA_CLUSTER_NAME=cassandra-cluster
+      - CASSANDRA_USER=cassandra
+      - CASSANDRA_PASSWORD=cassandra
+      # - CASSANDRA_CQL_PORT_NUMBER=3000
+
+  cassandra_node_3:
+    image: bitnami/cassandra:latest
+    networks:
+      - app-tier
+    # ports:
+    #   - "7002:7002"
+    environment:
+      - CASSANDRA_SEEDS= cassandra_node_1, cassandra_node_2, cassandra_node_3
+      - CASSANDRA_CLUSTER_NAME=cassandra-cluster
+      - CASSANDRA_USER=cassandra
+      - CASSANDRA_PASSWORD=cassandra
+      # - CASSANDRA_CQL_PORT_NUMBER=3000
+    
+  api-fruitter:
+    build: ./api-fruitter/
+    networks:
+      - app-tier
+    ports:
+      - "5000:5000"
+    depends_on:
+      - cassandra_node_1
+      - cassandra_node_2
+      - cassandra_node_3
