@@ -26,9 +26,7 @@ del tipo post en esta, se despliega un JSON con el nombre de las tablas como lla
 Los valores de ellas son unos arreglos donde se muestra el contenido de cada tabla.
 
 ```
-
 http.localhost:5000/see_tables      [POST]
-
 ```
 ### Crear recetas 
 El segundo crea recetas, para esto necesitan la siguiente información:
@@ -73,9 +71,7 @@ Finalmente para poder eliminar una receta necesitara la siguiente información:
 
 Esta informacion se mandara a la siguiente ruta:
 ```
-
 http.localhost:5000/delete     [POST]
-
 ```
 
 ## Preguntas y Respuestas
