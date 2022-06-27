@@ -81,7 +81,7 @@ http.localhost:5000/delete     [POST]
 Uso de una arquitectura de tipo anillo, donde la unidad lógica más pequeña es un nodo. Utiliza la partición de datos para optimizar las consultas. por lo que aprovechan, administran y optimizan el uso del ancho de banda de los demás usuarios de la red.
 
 <p align="center">
-  <img src="https://cassandra.apache.org/_/_images/diagrams/apache-cassandra-diagrams-01.jpg " width="400">
+  <img src="https://cassandra.apache.org/_/_images/diagrams/apache-cassandra-diagrams-01.jpg ">
 </p>
 
 Los nodos se conectan con la red Gossip Protocol el cual es un  protocolo que permite diseñar sistemas de comunicaciones distribuidos (P2P) altamente eficientes, seguros y de baja latencia.
