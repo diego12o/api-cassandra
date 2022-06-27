@@ -1,4 +1,3 @@
-
 # Api Cassandra
 
 Diego Alonso y Diego Riffo
@@ -12,7 +11,7 @@ Esto levantará 4 dockers: 3 con la imagen de bitnami Cassandra y
 Otro que contiene a la API. En este punto se debe esperar a que él
 Servicio de la API pueda ser utilizado.
 Esto se demora aproximadamente
-```
+
 ## Modo de uso
 
 Para este desarrollo se implementan 2 tablas en función del problema propuesto. 
@@ -112,9 +111,9 @@ Cassandra consta de particionador aleatorio por defecto para equilibrar las part
 
 Las estrategias de redundancia son : SimpleStrategy y NetworkTopologyStrategy
 
-SimpleStrategy: Ésta es usada solo para un solo centro de datos y un rack, la primera réplica en un nodo determinado por el particionador. Las réplicas adicionales se colocan en los siguientes nodos en el sentido de las agujas del reloj en el anillo.
+* SimpleStrategy: Ésta es usada solo para un solo centro de datos y un rack, la primera réplica en un nodo determinado por el particionador. Las réplicas adicionales se colocan en los siguientes nodos en el sentido de las agujas del reloj en el anillo.
 
-NetworkTopologyStrategy: Clúster implementado en varios centros de datos. Esta estrategia especifica cuántas réplicas desea en cada centro de datos.
+* NetworkTopologyStrategy: Clúster implementado en varios centros de datos. Esta estrategia especifica cuántas réplicas desea en cada centro de datos.
 
 NetworkTopologyStrategy es altamente recomendado para la mayoría de las implementaciones porque es mucho más fácil expandirse a múltiples centros de datos cuando lo requiera una futura expansión, SimpleStrategy solamente solamente un centro de datos.
 
@@ -127,4 +126,5 @@ Depende de la escala en la que se quiera realizar el sistema, si es a pequeña e
 Para escalar la solución se necesitará realizar un aumento de nodos, al igual que un mejoramiento en estos mismos (Escalar vertical y horizontal), sino el rendimiento al trabajar con una gran cantidad de datos se vería perjudicado originando un cuello de botella.
 
 Una solución al problema es aumentar la cantidad de shards (otro data center), ya que con esto se solucionara el problema de rendimiento pudiendo repartir los datos en los distintos shards teniendo un balanceo uniforme. También se tendría que cambiar la estrategia de replicación de datos a SimpleStrategy a NetworkTopolyStrategy.
+
 
