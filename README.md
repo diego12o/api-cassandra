@@ -48,7 +48,7 @@ http.localhost:5000/create      [POST]
 ### Editar recetas
 
 Para editar una receta se necesitará la siguiente información:
-```
+```json
 {
 "id": 1,
 "comentario ": " Amigdalitis aguda ",
@@ -62,7 +62,7 @@ http.localhost:5000/edit     [POST]
 ```
 ### Eliminar recetas
 Finalmente para poder eliminar una receta necesitara la siguiente información:
-```
+```json
 {
 "id": 1
 }
