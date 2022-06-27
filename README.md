@@ -80,8 +80,9 @@ http.localhost:5000/delete     [POST]
 #### 1. Explique la arquitectura que Cassandra maneja. Cuando se crea el cluster ¿Cómo los nodos se conectan? ¿Qué ocurre cuando un cliente realiza una petición a uno de los nodos? ¿Qué ocurre cuando uno de los nodos se desconecta? ¿La red generada entre los nodos siempre es eficiente? ¿Existe balanceo de carga?
 Uso de una arquitectura de tipo anillo, donde la unidad lógica más pequeña es un nodo. Utiliza la partición de datos para optimizar las consultas. por lo que aprovechan, administran y optimizan el uso del ancho de banda de los demás usuarios de la red.
 
-
-![](https://cassandra.apache.org/_/_images/diagrams/apache-cassandra-diagrams-01.jpg = 250x)
+<p align="center">
+  <img src="https://cassandra.apache.org/_/_images/diagrams/apache-cassandra-diagrams-01.jpg " width="48">
+</p>
 
 Los nodos se conectan con la red Gossip Protocol el cual es un  protocolo que permite diseñar sistemas de comunicaciones distribuidos (P2P) altamente eficientes, seguros y de baja latencia.
 
